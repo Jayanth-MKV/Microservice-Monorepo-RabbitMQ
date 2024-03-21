@@ -1,8 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class StudentService {
-  getHello(): string {
-    return 'Hello World!';
+  private readonly logger = new Logger(StudentService.name);
+
+  async getHello(): Promise<string> {
+    this.logger.debug('Hello from student');
+    return 'Hello World! STUDENT';
   }
 }

@@ -1,0 +1,1 @@
+export const STUDENT_SERVICE = 'STUDENT';
