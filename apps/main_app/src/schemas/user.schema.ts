@@ -4,6 +4,9 @@ import { Prop, SchemaFactory } from '@nestjs/mongoose';
 export class User extends DbDocument {
   @Prop()
   name: string;
+  
+  @Prop()
+  email: string;
 
   @Prop()
   department: string;

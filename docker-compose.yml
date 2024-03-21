@@ -12,6 +12,7 @@ services:
       - mongodb-secondary
       - mongodb-arbiter
       - rabbitmq
+      - auth
       - student
     volumes:
       - .:/usr/src/app
@@ -28,6 +29,25 @@ services:
     command: npm run start:dev student
     env_file:
       - ./apps/student/.env
+    depends_on:
+      - mongodb-primary
+      - mongodb-secondary
+      - mongodb-arbiter
+      - rabbitmq
+      - auth
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - backend
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: npm run start:dev auth
+    env_file:
+      - ./apps/auth/.env
     depends_on:
       - mongodb-primary
       - mongodb-secondary
