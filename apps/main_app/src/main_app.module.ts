@@ -10,6 +10,7 @@ import { STUDENT_SERVICE } from './constants/services';
 import { UsersRepository } from './repositories/user.repository';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { AuthModule } from 'apps/auth/src/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { APP_GUARD } from '@nestjs/core';
     RmqModule.register({
       name: STUDENT_SERVICE,
     }),
+    AuthModule
   ],
   controllers: [MainAppController],
   providers: [
