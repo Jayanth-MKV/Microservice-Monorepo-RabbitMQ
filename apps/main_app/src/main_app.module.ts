@@ -3,14 +3,13 @@ import { MainAppController } from './main_app.controller';
 import { MainAppService } from './main_app.service';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
-import { DatabaseModule, RmqModule } from '@app/common';
+import { DatabaseModule, RmqModule,AuthModule } from '@app/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './schemas/user.schema';
 import { STUDENT_SERVICE } from './constants/services';
 import { UsersRepository } from './repositories/user.repository';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-import { AuthModule } from 'apps/auth/src/auth.module';
 
 @Module({
   imports: [
